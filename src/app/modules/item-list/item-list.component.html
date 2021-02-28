@@ -1,0 +1,46 @@
+
+
+<div class="container-fluid">
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <td>Item No</td>
+      <td>Name</td>
+      <td>Amount</td>
+      <td>Inventory Code</td>
+      <td>Actions</td>
+    </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let row of rows">
+        <td>{{row.itemNo}}</td>
+        <td>{{row.name}}</td>
+        <td>{{row.amount}}</td>
+        <td>{{row.inventoryCode}}</td>
+        <td>
+          <a [routerLink]="['/item/details',row.itemNo]">
+            details
+          </a>
+
+          <a [routerLink]="['/item/edit',row.itemNo]">
+            edit
+          </a>
+          <a [routerLink]="['/item/withdraw',row.itemNo]">
+            withdraw
+          </a>
+          <a [routerLink]="['/item/deposit',row.itemNo]">
+            deposit
+          </a>
+          <a [routerLink]="['/item/delete',row.itemNo]">
+            delete
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+

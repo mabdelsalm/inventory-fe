@@ -1,0 +1,51 @@
+
+<div class="container-fluid">
+
+
+  <form #form="ngForm">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" [readonly]="actionType!='edit'&& actionType!='create'" class="form-control" [(ngModel)]="model.name" name="name" id="name" required placeholder="Name">
+    </div>
+    <div class="form-group">
+      <label>Amount</label>
+      <input type="number" [readonly]="actionType!='edit'&& actionType!='create'" class="form-control" [(ngModel)]="model.amount" name="amount" id="amount" required>
+    </div>
+    <div class="form-group">
+      <label>Inventory Code</label>
+      <input type="text" [readonly]="actionType!='edit'&& actionType!='create'" class="form-control" [(ngModel)]="model.inventoryCode" name="inventoryCode" id="inventoryCode" required>
+    </div>
+
+    <div class="form-group" *ngIf="actionType=='withdraw' || actionType=='deposit'">
+      <label>{{actionType + ' amount'}}</label>
+      <input type="number" class="form-control" [(ngModel)]="amount" name="withdrawDepositAmount" id="withdrawDepositAmount" required>
+    </div>
+
+    <button (click)="save()" [disabled]="form.invalid" class="btn btn-primary" *ngIf="actionType=='create'">
+      add
+    </button>
+
+    <button (click)="save()" [disabled]="form.invalid" class="btn btn-primary" *ngIf="actionType=='edit'">
+      update
+    </button>
+
+
+
+    <button (click)="delete()" style="margin-left: 7px;" class="btn btn-primary" *ngIf="actionType=='delete'">
+      delete
+    </button>
+
+    <button (click)="withdraw()" style="margin-left: 7px;" [disabled]="amount<=0" class="btn btn-primary" *ngIf="actionType=='withdraw'">
+      withdraw
+    </button>
+
+    <button (click)="deposit()" style="margin-left: 7px;" [disabled]="amount<=0" class="btn btn-primary" *ngIf="actionType=='deposit'">
+      deposit
+    </button>
+
+    <button style="margin-left: 7px;" [routerLink]="['/item/list']" class="btn btn-primary">
+      back
+    </button>
+
+  </form>
+</div>
