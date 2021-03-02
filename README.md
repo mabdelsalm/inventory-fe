@@ -14,5 +14,5 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build. </br>
-This project is connected with Netlify which means once you commit a change it will be deployed directly as continuous deployment is on.
+This project is connected with [Netlify](https://inventory-web-app.netlify.app/) which means once you commit a change it will be deployed directly as continuous deployment is on.
 All you need to do is to change `Environment` variable `apiURL` in order to points to your api application.
